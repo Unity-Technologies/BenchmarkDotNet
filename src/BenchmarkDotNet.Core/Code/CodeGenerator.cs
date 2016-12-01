@@ -85,11 +85,11 @@ namespace BenchmarkDotNet.Code
             {
                 return new GenericTaskDeclarationsProvider(target, typeof(TaskMethodInvoker<>));
             }
-            if (method.ReturnType.GetTypeInfo().IsGenericType 
-                && method.ReturnType.GetTypeInfo().GetGenericTypeDefinition() == typeof(ValueTask<>))
-            {
-                return new GenericTaskDeclarationsProvider(target, typeof(ValueTaskMethodInvoker<>));
-            }
+            //if (method.ReturnType.GetTypeInfo().IsGenericType 
+            //    && method.ReturnType.GetTypeInfo().GetGenericTypeDefinition() == typeof(ValueTask<>))
+            //{
+            //    return new GenericTaskDeclarationsProvider(target, typeof(ValueTaskMethodInvoker<>));
+            //}
 
             if (method.ReturnType == typeof(void))
             {
