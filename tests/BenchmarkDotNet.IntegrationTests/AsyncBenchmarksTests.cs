@@ -43,8 +43,8 @@ namespace BenchmarkDotNet.IntegrationTests
             [Benchmark]
             public Task<int> ReturningGenericTask() => ReturningTask().ContinueWith(_ => default(int));
 
-            [Benchmark]
-            public ValueTask<int> ReturningValueTask() => new ValueTask<int>(ReturningGenericTask());
+            //[Benchmark]
+            //public ValueTask<int> ReturningValueTask() => new ValueTask<int>(ReturningGenericTask());
         }
     }
 }

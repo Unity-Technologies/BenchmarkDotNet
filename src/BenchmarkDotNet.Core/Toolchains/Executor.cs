@@ -15,7 +15,7 @@ using BenchmarkDotNet.Toolchains.Results;
 
 namespace BenchmarkDotNet.Toolchains
 {
-    internal class Executor : IExecutor
+    public class Executor : IExecutor
     {
         // This needs to be static, so that we can share a single handler amongst all instances of Executor's
         private static ConsoleHandler consoleHandler;
@@ -81,7 +81,7 @@ namespace BenchmarkDotNet.Toolchains
             return new ExecuteResult(true, process.ExitCode, new string[0], new string[0]);
         }
 
-        private ProcessStartInfo CreateStartInfo(Benchmark benchmark, string exeName, string args, string workingDirectory, IResolver resolver)
+        protected virtual ProcessStartInfo CreateStartInfo(Benchmark benchmark, string exeName, string args, string workingDirectory, IResolver resolver)
         {
             var start = new ProcessStartInfo
             {

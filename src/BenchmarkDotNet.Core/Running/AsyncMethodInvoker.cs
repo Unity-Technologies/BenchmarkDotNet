@@ -35,12 +35,12 @@ namespace BenchmarkDotNet.Running
 
     public static class ValueTaskMethodInvoker<T>
     {
-        [HideFromIntelliSense(System.ComponentModel.EditorBrowsableState.Never)]
-        public static T Idle() => ExecuteBlocking(() => new ValueTask<T>(default(T)));
+        //[HideFromIntelliSense(System.ComponentModel.EditorBrowsableState.Never)]
+        //public static T Idle() => ExecuteBlocking(() => new ValueTask<T>(default(T)));
 
         // we use .Result instead of .GetAwaiter().GetResult() because it's faster
-        [HideFromIntelliSense(System.ComponentModel.EditorBrowsableState.Never)]
-        public static T ExecuteBlocking(Func<ValueTask<T>> future) => future.Invoke().Result;
+        //[HideFromIntelliSense(System.ComponentModel.EditorBrowsableState.Never)]
+        //public static T ExecuteBlocking(Func<ValueTask<T>> future) => future.Invoke().Result;
     }
     // ReSharper restore MemberCanBePrivate.Global
 }
